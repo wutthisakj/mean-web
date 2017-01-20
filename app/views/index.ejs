@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+
+<head>
+	<!-- Use the 'title' property to render a page title  -->
+	<title><%= title %></title>
+</head>
+<body>
+	<!-- If a user is authenticated, display the user's full name , otherwise display the authentication links -->
+	<% if ( userFullName ) { %>
+		<h2>Hello <%=userFullName%> </h2> 
+		<a href="/signout">Sign out</a>
+	<% } else { %>
+		<a href="/signup">Signup</a>
+		<a href="/signin">Signin</a>
+	<% } %>
+     
+    <section ng-view></section>
+    
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/example/example.client.module.js"></script>
+    <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+    <script type="text/javascript" src="/application.js"></script>
+    
+    <!-- Load the static image file  -->
+	<img src="img/logo.png" alt="Logo">
+</body>
+</html>
